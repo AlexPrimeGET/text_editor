@@ -55,6 +55,10 @@
             this.te_menu_backgroundColor = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.строкаСостоянияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.масштабToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.увеличитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.уменьшитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.восстановитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.te_statusBar = new System.Windows.Forms.StatusStrip();
@@ -105,7 +109,7 @@
             this.te_menu.Location = new System.Drawing.Point(0, 0);
             this.te_menu.Name = "te_menu";
             this.te_menu.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.te_menu.Size = new System.Drawing.Size(624, 24);
+            this.te_menu.Size = new System.Drawing.Size(633, 24);
             this.te_menu.TabIndex = 0;
             this.te_menu.Text = "menuStrip1";
             // 
@@ -280,7 +284,8 @@
             // видToolStripMenuItem
             // 
             this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.строкаСостоянияToolStripMenuItem});
+            this.строкаСостоянияToolStripMenuItem,
+            this.масштабToolStripMenuItem});
             this.видToolStripMenuItem.Name = "видToolStripMenuItem";
             this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.видToolStripMenuItem.Text = "Вид";
@@ -290,9 +295,46 @@
             this.строкаСостоянияToolStripMenuItem.Checked = true;
             this.строкаСостоянияToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.строкаСостоянияToolStripMenuItem.Name = "строкаСостоянияToolStripMenuItem";
-            this.строкаСостоянияToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.строкаСостоянияToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.строкаСостоянияToolStripMenuItem.Text = "Строка состояния";
             this.строкаСостоянияToolStripMenuItem.Click += new System.EventHandler(this.строкаСостоянияToolStripMenuItem_Click);
+            // 
+            // масштабToolStripMenuItem
+            // 
+            this.масштабToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.увеличитьToolStripMenuItem,
+            this.уменьшитьToolStripMenuItem,
+            this.восстановитьToolStripMenuItem});
+            this.масштабToolStripMenuItem.Name = "масштабToolStripMenuItem";
+            this.масштабToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.масштабToolStripMenuItem.Text = "Масштаб";
+            // 
+            // увеличитьToolStripMenuItem
+            // 
+            this.увеличитьToolStripMenuItem.Name = "увеличитьToolStripMenuItem";
+            this.увеличитьToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+плюс";
+            this.увеличитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Add)));
+            this.увеличитьToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.увеличитьToolStripMenuItem.Text = "Увеличить";
+            this.увеличитьToolStripMenuItem.Click += new System.EventHandler(this.увеличитьToolStripMenuItem_Click);
+            // 
+            // уменьшитьToolStripMenuItem
+            // 
+            this.уменьшитьToolStripMenuItem.Name = "уменьшитьToolStripMenuItem";
+            this.уменьшитьToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+минус";
+            this.уменьшитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Subtract)));
+            this.уменьшитьToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.уменьшитьToolStripMenuItem.Text = "Уменьшить";
+            this.уменьшитьToolStripMenuItem.Click += new System.EventHandler(this.уменьшитьToolStripMenuItem_Click);
+            // 
+            // восстановитьToolStripMenuItem
+            // 
+            this.восстановитьToolStripMenuItem.Name = "восстановитьToolStripMenuItem";
+            this.восстановитьToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+0";
+            this.восстановитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.NumPad0)));
+            this.восстановитьToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.восстановитьToolStripMenuItem.Text = "Восстановить";
+            this.восстановитьToolStripMenuItem.Click += new System.EventHandler(this.восстановитьToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -317,9 +359,9 @@
             this.te_sb_quantity,
             this.toolStripSeparator4,
             this.te_sb_path});
-            this.te_statusBar.Location = new System.Drawing.Point(0, 418);
+            this.te_statusBar.Location = new System.Drawing.Point(0, 428);
             this.te_statusBar.Name = "te_statusBar";
-            this.te_statusBar.Size = new System.Drawing.Size(624, 23);
+            this.te_statusBar.Size = new System.Drawing.Size(633, 23);
             this.te_statusBar.SizingGrip = false;
             this.te_statusBar.TabIndex = 1;
             this.te_statusBar.Text = "statusStrip1";
@@ -379,7 +421,7 @@
             this.te_tsb_fontReduce});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(624, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(633, 31);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -540,7 +582,7 @@
             this.te_rtb_editor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.te_rtb_editor.Location = new System.Drawing.Point(0, 55);
             this.te_rtb_editor.Name = "te_rtb_editor";
-            this.te_rtb_editor.Size = new System.Drawing.Size(624, 363);
+            this.te_rtb_editor.Size = new System.Drawing.Size(633, 373);
             this.te_rtb_editor.TabIndex = 3;
             this.te_rtb_editor.Text = "";
             this.te_rtb_editor.TextChanged += new System.EventHandler(this.Te_rtb_editor_TextChanged);
@@ -600,18 +642,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(633, 451);
             this.Controls.Add(this.te_rtb_editor);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.te_menu);
             this.Controls.Add(this.te_statusBar);
             this.Font = new System.Drawing.Font("Calibri Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.te_menu;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "te_form";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Текстовый редактор";
             this.TransparencyKey = System.Drawing.Color.Gray;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.te_form_FormClosing);
@@ -686,6 +727,10 @@
         private System.Windows.Forms.ToolStripButton te_tsb_fontEnlarge;
         private System.Windows.Forms.ToolStripButton te_tsb_fontReduce;
         private System.Windows.Forms.ToolStripMenuItem строкаСостоянияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem масштабToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem увеличитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem уменьшитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem восстановитьToolStripMenuItem;
     }
 }
 

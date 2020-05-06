@@ -93,6 +93,8 @@ namespace TextEditor
 
             this.Width = Properties.Settings.Default.formWidth;
             this.Height = Properties.Settings.Default.formHeight;
+            this.Location = new Point(200, 200);
+            this.Location = Properties.Settings.Default.Location;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -101,7 +103,7 @@ namespace TextEditor
             Properties.Settings.Default.formHeight = this.Height;
             base.OnFormClosing(e);
         }
-
+        
         /// Завершение работы
 
         private void Te_menu_exit_Click(object sender, EventArgs e)
@@ -202,7 +204,7 @@ namespace TextEditor
         }
 
        
-        /// Копирование выделенного фрагмента
+        /// Копирование выделенного фрагмента   
         
         private void Te_menu_copy_Click(object sender, EventArgs e)
         {
@@ -367,13 +369,8 @@ namespace TextEditor
             }
         }
 
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            
-        }
-
         /// Справка
+        
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 te_license = new Form2();
@@ -389,7 +386,7 @@ namespace TextEditor
         private void te_tsb_fontEnlarge_Click(object sender, EventArgs e)
         {
             if (te_rtb_editor.Font.Size < 300F)
-                te_rtb_editor.Font = new Font(te_rtb_editor.Font.Name, te_rtb_editor.Font.Size+2F, te_rtb_editor.Font.Style);
+                te_rtb_editor.SelectionFont = new Font(te_rtb_editor.Font.Name, te_rtb_editor.SelectionFont.Size+2F, te_rtb_editor.Font.Style);
         }
 
         /// Уменьшение шрифта
@@ -403,6 +400,7 @@ namespace TextEditor
         {
             Properties.Settings.Default.formWidth = this.Width;
             Properties.Settings.Default.formHeight = this.Height;
+            Properties.Settings.Default.Location = this.Location;
             Properties.Settings.Default.Save();
         }
 
@@ -410,6 +408,23 @@ namespace TextEditor
         {
             строкаСостоянияToolStripMenuItem.Checked = !строкаСостоянияToolStripMenuItem.Checked;
             te_statusBar.Visible = !te_statusBar.Visible;
+        }
+
+        private void увеличитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (te_rtb_editor.ZoomFactor < 100F)
+                te_rtb_editor.ZoomFactor = te_rtb_editor.ZoomFactor + 0.1F;
+        }
+
+        private void восстановитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            te_rtb_editor.ZoomFactor = 1F;
+        }
+
+        private void уменьшитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (te_rtb_editor.ZoomFactor > 0.21F)
+                te_rtb_editor.ZoomFactor = te_rtb_editor.ZoomFactor - 0.1F;
         }
     }
 }
